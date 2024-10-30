@@ -16,7 +16,6 @@ import { CreateTemplateDto } from './dtos/createTemplate.dto';
 export class CrossmintController {
   constructor(private readonly crossmintService: CrossmintService) {}
 
-  // @Post('credentials/:credentialId')
   @Get('credentials/:credentialId')
   async getCredentialByCredentialId(
     @Param('credentialId') credentialId: string,
