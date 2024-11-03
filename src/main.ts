@@ -11,6 +11,6 @@ async function bootstrap() {
     credentials: true,
   });
 
-  await app.listen(5002);
+  await app.listen(`${process.env.PORT}` || 5003);
 }
 bootstrap();

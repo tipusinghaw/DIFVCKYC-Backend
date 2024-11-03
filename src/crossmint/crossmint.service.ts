@@ -5,8 +5,7 @@ import { CreateTemplateDto } from './dtos/createTemplate.dto';
 
 @Injectable()
 export class CrossmintService {
-  private readonly myApiKey =
-    'sk_staging_5YV5T8355LLd2Htb6JQ6P9WjrApd8Vv8fT9s1TPkfWKBGXdsCPYWVqk3c4AMUT6jNt9CyeDUVbsxuNr9BuFSV6UzEuibUt4U8L7T6wBzf3tTUN4FmBHU7yggMBYhDCAuMsNPpoADskMzCM2c4a23o5GNuYs68Uhff9XKQFNAoTA9CZTAE4ue7uohvj8YqaHRjDmj33iCRPi8EwPB66YTTb4G';
+  private readonly myApiKey = process.env.API_KEY;
 
   async getCredentialByCredentialId(credentialId: string): Promise<any> {
     const options = {
@@ -110,8 +109,8 @@ export class CrossmintService {
         `https://staging.crossmint.com/api/v1-alpha1/credentials/templates/${createOffer.templateId}/vcs`,
         options,
       );
-      const data = await response.json();
 
+      const data = await response.json();
       if (!response.ok) {
         throw new HttpException(data, HttpStatus.BAD_REQUEST);
       }

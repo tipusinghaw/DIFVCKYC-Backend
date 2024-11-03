@@ -39,7 +39,6 @@ export class CrossmintController {
     @Body() attributesDto: any,
     @Res() res,
   ): Promise<any> {
-    console.log('attributesDto56:::', attributesDto);
     try {
       const result =
         await this.crossmintService.createTemplateAttributes(attributesDto);
